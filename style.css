@@ -3,25 +3,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  } 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
-  html {
+html {
     scroll-behavior: smooth;
-  }
+}
 
-  :root {
-    --primaria: #7c4caf;
-    --secundaria: #ffffff;
+:root {
+    --primaria: #672288;
+    --secundaria: #281593;
     --escuro: #151515;
     --maisEscuro: #000000;
     --claro: #cfcbcb;
-    --vidro: rgba(255, 255, 255, 0.1);    
-  }
+    --vidro: rgba(255, 255, 255, 0.1);
+}
 
-    body {
-        background: var(--escuro);
-        color: var(--claro);
+body {
+    background: var(--escuro);
+    color: var(--claro);
 }
 
 .navegacao {
@@ -30,7 +30,7 @@
     background: rgba(15, 23, 42, 0.8);
     width: 100%;
     z-index: 100;
-    padding: 1.5rem;    
+    padding: 1.5rem;
 }
 
 .menu {
@@ -49,7 +49,7 @@
 }
 
 .menu-link::after {
-    content:'';
+    content: '';
     height: 2px;
     width: 0;
     position: absolute;
@@ -79,12 +79,12 @@
     height: 350px;
     box-shadow: 0 0 20px rgba(79, 70, 329, 0.3);
     border: 4px solid var(--vidro);
+    animation: flutuar 4s ease-in-out infinite;
 }
 
-h1{
+h1 {
     font-size: 3.5rem;
-    color: var(--secundaria);
-    font-weight: bold;
+    color: var(--claro);
     margin: 20px;
 }
 
@@ -117,9 +117,137 @@ h1{
     background: rgba(255, 255, 255, 0.05);
 }
 
-.sobre-paragrafo {   
+.sobre-paragrafo {
     font-size: 1.2rem;
     align-items: center;
-
-    
 }
+
+.projetos {
+    padding: 6rem 2rem;
+}
+
+.projetos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projetos-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.projetos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.projetos-card:hover {
+    box-shadow: 0 0 20px rgba(79, 70, 329, 0.3);
+    transform: translateY(-10px) scale(1.05);
+}
+
+.projetos-imagem {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.caixa-textos-projetos {
+    padding: 1.5rem;
+}
+
+.paragrafo-projetos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 60px;
+}
+
+.info-projetos {
+    margin-bottom: 5px;
+}
+
+.contato {
+    padding: 6rem 2rem;
+}
+
+.contato-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+
+.formulario-contato {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+    outline: none;
+}
+
+.grupo-form {
+    margin-bottom: 1.5rem;
+}
+
+.campo-form {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+}
+ .campo-form:focus {
+    border-color: var(--primaria);
+    box-shadow: 0 0 10px rgba(37, 9, 76, 0.816)
+ }
+
+ .botao-form{
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--secundaria),var(--primaria));
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+ }
+
+ .botao-form:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px rgba(79, 70, 329, 0.5);
+ }
+
+.particulas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+    background:
+    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
+    var(--maisEscuro);
+ }
+
+ @keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+ }
