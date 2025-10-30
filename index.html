@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ept-br">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,9 @@
 </head>
 
 <body>
+
+    <div class="particulas"></div>
+
     <nav class="navegacao">
         <ul class="menu">
             <li>
@@ -26,59 +29,89 @@
         </ul>
     </nav>
 
-    <main id="#inicio" class="cabecalho">    
-            <img src="img/marcela.jpg" alt="Foto de Marcela Costa" class="foto-perfil">
-            <h1>Marcela Costa</h1>
-            <p class="cabecalho-sub-titulo">Desenvolvedora Full Stack</p>
+    <main id="inicio" class="cabecalho">
+        <img src="img/marcela.jpg" alt="Foto de Marcela Costa" class="foto-perfil">
+        <h1>Marcela Costa</h1>
+        <p class="cabecalho-sub-titulo">Desenvolvedora Full Stack</p>
     </main>
 
     <section id="sobre" class="sobre">
         <h2 class="sobre-titulo">Sobre mim</h2>
+
         <div class="sobre-caixa">
             <p class="sobre-paragrafo">
                 Olá! Meu nome é Marcela Costa e sou uma desenvolvedora Full Stack apaixonada por criar soluções
                 inovadoras na web. Com experiência em diversas tecnologias, estou sempre em busca de novos desafios para
                 aprimorar minhas habilidades e contribuir para projetos impactantes.
             </p>
-
         </div>
-
     </section>
 
     <section id="projetos" class="projetos">
         <h2 class="projetos-titulo">Meus Projetos</h2>
         <div class="projetos-caixa">
-            <div class="projeto-card">
-                <h3 class="info-projetos">Projeto 1: Site de Portfólio</h3>
-                <img src="img/projeto1.jpg" alt="Projeto 1" class="projeto-imagem">
-                <p class="paragrafo-projetos">Projeto responsivo do meu Portfólio</p>
+            <div class="projetos-card">
+                <img src="img/projeto1.jpg" alt="Projeto 1" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                    <h3 class="info-projetos">Site de Portfólio</h3>
+                    <p class="paragrafo-projetos">Projeto Responsivo Portfólio</p>
+                </div>
             </div>
-            <div class="projeto-card">
-                <h3 class="info-projetos">Projeto 2: Aplicativo de Tarefas</h3>
-                <img src="img/projeto2.jpg" alt="Projeto 2" class="projeto-imagem">
-                <p class="paragrafo-projetos">Projeto de Aplicativo de Tarefas que desenvolvi</p>
-            </div>
-            <div class="projeto-card">
-                <h3 class="info-projetos">Projeto 3: Blog Pessoal</h3>
-                <img src="img/projeto3.jpg" alt="Projeto 3" class="projeto-imagem">
-                <p class="paragrafo-projetos">Blog Pessoal desenvolvido para espalhar fofocas</p>
 
+            <div class="projetos-card">
+                <img src="img/projeto2.jpg" alt="Projeto 2" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                    <h3 class="info-projetos">Aplicativo de Tarefas</h3>
+                    <p class="paragrafo-projetos">Projeto de Aplicativo de Tarefas</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="img/projeto3.jpg" alt="Projeto 3" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                    <h3 class="info-projetos">Blog Pessoal</h3>
+                    <p class="paragrafo-projetos">Projeto Blog Pessoal</p>
+                </div>
             </div>
         </div>
     </section>
+
     <section id="contato" class="contato">
-        <h2 class="contato-titulo">Contato</h2>
-        <div class="contato-caixa">
-            <form class="formulario-contato" id="formulario">
-                <div class="grupo-form">
-                    <input placeholder="Nome" class="campo-form">
-                </div>
-                <div class="grupo-form">
-                    <textarea class="text-form" placeholder="Digite sua Mensagem.."></textarea>
-                </div>
+        <h2 class="contato-titulo">Entre em Contato</h2>
 
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
 
-            </form>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua Mensagem.." rows="4" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar Whatsapp</button>
+
+        </form>
+
+    </section>
+
+    <script>
+
+        function enviarWhats(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5513996619197';
+
+            const texto = `Olá, meu nome é ${nome}, ${mensagem}`;
+            const msgFormatada = encodeURIComponent(texto);
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+
+            window.open(url, '_blank');
+        }
+
+    </script>
 
 </body>
 
